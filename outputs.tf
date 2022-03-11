@@ -3,18 +3,18 @@ output "rg" {
 }
 
 output "vnet" {
-    value = format("vnet-%s-%s", lookup(local.loc, var.location), lookup(local.env, replace(var.environment, "-", "")))
+    value = format("vnet-%s-%s", lookup(local.reg, var.location), lookup(local.env, replace(var.environment, "-", "")))
 }
 
 output "subnets" {
     value = {
         for x in var.subnets :
-        lower(x) => format("snet-%s-%s-%s", lookup(local.loc, var.location), lookup(local.env, replace(var.environment, "-", "")), lower(x))
+        lower(x) => format("snet-%s-%s-%s", lookup(local.reg, var.location), lookup(local.env, replace(var.environment, "-", "")), lower(x))
     }
 }
 
 output "nsg" {
-    value = format("nsg-%s-%s", lookup(local.loc, var.location), lookup(local.env, replace(var.environment, "-", "")))
+    value = format("nsg-%s-%s", lookup(local.reg, var.location), lookup(local.env, replace(var.environment, "-", "")))
 }
 
 output "vm" {
