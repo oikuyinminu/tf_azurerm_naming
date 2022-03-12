@@ -10,7 +10,7 @@ variable "environment" {
 
 variable "project" {
   description = "(Required) A 3 Character representation of the project."
-  typr        = string
+  type        = string
 }
 
 variable "solution" {
