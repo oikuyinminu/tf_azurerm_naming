@@ -20,6 +20,6 @@ locals {
   std_noloc   = format("%s-%s", lookup(local.env, replace(var.environment, "-", "")), local.prj)
   stdsql      = format("%s-%s-%s-%s", lookup(local.reg, var.location), lookup(local.env, replace(var.environment, "-", "")), local.solution, local.prj)
   std_no_dash = format("%s%s%s", lookup(local.reg, var.location), lookup(local.env, replace(var.environment, "-", "")), local.prj)
-  vm_name     = local.solution != "" ? format("vm%s%s%s%s", lookup(local.reg, var.location), lookup(local.env, replace(var.environment, "-", "")), local.prj, local.solution) : format("vm%s%s%s", lookup(local.reg, var.location), lookup(local.env, replace(var.environment, "-", "")), local.prj)
+  vm_name     = local.solution != "" ? format("%s%s%s%svm", lookup(local.reg, var.location), lookup(local.env, replace(var.environment, "-", "")), local.prj, local.solution) : format("vm%s%s%s", lookup(local.reg, var.location), lookup(local.env, replace(var.environment, "-", "")), local.prj)
 
 }
